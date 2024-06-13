@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script>
+        // Tela de início
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const startScreenCanvas = document.getElementById('startScreenCanvas');
+            const ctx = startScreenCanvas.getContext('2d');
+            startScreenCanvas.width = window.innerWidth;
+            startScreenCanvas.height = window.innerHeight;
+            
+            const drawStartScreen = () => {
+                ctx.fillStyle = 'black';
+                ctx.fillRect(0, 0, startScreenCanvas.width, startScreenCanvas.height);
+            
+                ctx.fillStyle = 'white';
+                ctx.font = '55px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('Soldado em ação: Desafio da Floresta', startScreenCanvas.width / 2, startScreenCanvas.height / 2 - 50);
+                ctx.font = '24px Arial';
+                ctx.fillText('Clique para começar o jogo', startScreenCanvas.width / 2, startScreenCanvas.height / 2);
+            };
+            
+            drawStartScreen();
+            
+            startScreenCanvas.addEventListener('click', () => {
+                startScreenCanvas.style.display = 'none';
+                document.getElementById('gameContent').style.display = 'block';
+                startGameLoop();
+            });
+        });
+    </script>
+</head>
+<body>
+
+<canvas id="startScreenCanvas"></canvas>
+<div id="gameContent" style="display: none;">
+    <div class="game-board">
+        <audio id="shootSound">
+            <source src="assets/imgs/tiro.mp3" type="audio/mpeg">
+        </audio>
+
+        <audio id="game-over-sound">
+            <source src="assets/imgs/som_fimdejogo.mp4" type="audio/mpeg">
+        </audio>
+
+        <audio id="game-music">
+            <source src="assets/imgs/cavalo.mp3" type="audio/mpeg">
+        </audio>
+
+        <img src="assets/imgs/aviao.png" class="aviao">
+        <img src="assets/imgs/Personagem.gif" class="Personagem">
+        <img src="assets/imgs/tronco.png" class="tronco">
+        
+    </div>
+
+    <div class="game-over">
+        <button class="restart">REINICIAR</button>
+    </div>
+</div>
+
+</body>
+</html>

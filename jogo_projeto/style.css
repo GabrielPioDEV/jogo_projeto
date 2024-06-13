@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+.game-board{
+    width: 100%;
+    height: 890px;
+    border-bottom: 50px solid green;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(black, rgb(84, 84, 221))
+}
+
+.tronco{
+    position: absolute;
+    bottom: -27px;
+    width: 150px;
+    animation: tronco-animations 1.5s infinite linear;
+}
+
+.Personagem{
+    width: 190px;
+    position: absolute;
+    bottom: 0px;
+}
+
+.jump{
+    animation: Personagem-animation 500ms ease-out;
+}
+
+.aviao{
+    width: 500px;
+    position: absolute;
+    animation: aviao 20s infinite linear;
+}
+
+.game-over{
+    visibility: hidden;
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(65, 57, 57, 0.363)
+}
+
+.restart{
+    height: 60px;
+    width: 350px;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    background-color: red;
+    cursor: pointer;
+}
+
+@keyframes tronco-animations {
+    from{
+        right: -80px;
+    }
+
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes Personagem-animation{
+    0%{
+        bottom: 0;
+    }
+
+    40%{
+        bottom: 120px
+    }
+
+    50%{
+        bottom: 120px;
+    }
+
+    60%{
+        bottom: 120px
+    }
+
+    100%{
+        bottom: 0px
+    }
+}
+
+@keyframes aviao {
+    from{
+        right: -550px;
+    }
+
+    to{
+        right: 100%
+    }
+}
+
+@media (max-width: 620px){
+    .Personagem{
+        width: 110px;
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .tronco{
+        position: absolute;
+        bottom: 0;
+        width: 50px;
+        animation: tronco-animations 1s infinite linear;
+    }
+}
+
